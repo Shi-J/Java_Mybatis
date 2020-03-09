@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	namespace该mapper.xml唯一标识符	-->
+<mapper namespace="com.stone.mybatis.mapper.StudentDao">
+	<!--	根据id查询一个学生
+		select：查询语句
+		resultType：该方法的返回值
+		parameterType:输入参数类型
+	-->
+	<select id="selectOne" resultType="com.stone.mybatis.model.Student" parameterType="Integer">
+		select * from  student where id=#{id}
+	</select>
+	<!--	查询所有学生	-->
+	<select id="selectAll" resultType="STUdent">
+		select * from student
+	</select>
+	<!--	添加学生	-->
+	<insert id="addStudent" parameterType="com.stone.mybatis.model.Student">
+		insert into student(name,age,sex) values (#{name},#{age},#{sex});
+	</insert>
+
+	<!--	修改学生	-->
+	<update id="updStudent" parameterType="com.stone.mybatis.model.Student">
+		update student set name=#{name} where  id=#{id}
+	</update>
+	<!--	删除学生	-->
+	<delete id="delStudent" parameterType="Integer">
+		delete from student where id=#{id}
+	</delete>
+
+
+    
+
+</mapper>

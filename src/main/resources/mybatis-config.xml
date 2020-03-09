@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置连接数据库的参数 -->
+	<properties resource="db.properties"></properties>
+
+
+	<typeAliases>
+		<typeAlias type="com.stone.mybatis.model.Student" alias="student"></typeAlias>
+
+	</typeAliases>
+
+
+	<environments default="dev">
+		<!--	environment开发坏境-->
+		<environment id="dev">
+			<!--	配置事务的提交方式
+				JDBC：利用JDBC方式处理事务（commit rollback close）
+				MANAGED：将事务交由其他组件去托管
+
+			-->
+			<transactionManager type="JDBC" />
+			<!--	数据源类型
+				POOLED：使用数据库连接池（推荐使用）
+				UNPOOLED：不使用数据库连接池 ，传统的JDBC模式（不推荐使用，每次访问数据库都需要进行打开，关闭数据库，很耗资源）
+				JNDI：从tomcat中获取一个内置的数据库连接池
+
+			-->
+			<dataSource type="POOLED">
+				<!-- 配置数据库信息 -->
+				<property name="driver" value="${jdbc_driver}" />
+				<property name="url" value="${jdbc_url}" />
+				<property name="username" value="${jdbc_username}" />
+				<property name="password" value="${jdbc_password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!--	注册mapper	-->
+	<mappers>
+
+<!--		<mapper class="com.stone.mybatis.mapper.StudentDao"></mapper>-->
+<!--        <mapper url="file:\D:\Testenv\idea\Java_Mybatis\src\main\resources\mapper\StudentMapper.xml"></mapper>-->
+<!--        <mapper resource="mapper/StudentMapper.xml"></mapper>-->
+        <package name="com.stone.mybatis.mapper"/>
+
+	</mappers>
+
+</configuration>
