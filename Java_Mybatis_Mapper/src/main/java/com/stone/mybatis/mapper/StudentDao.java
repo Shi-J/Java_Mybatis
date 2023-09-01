@@ -1,8 +1,7 @@
 package com.stone.mybatis.mapper;
 
 import com.stone.mybatis.model.Student;
-import org.apache.ibatis.annotations.Param;
-
+ii
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +25,7 @@ public interface StudentDao
     //  多条件查询学生
 //    Student  selectOne2( @Param("id") Integer id, @Param("name") String name);
 //    Student  selectOne2(Student student);
+    //  添加测试代码提交
     Student  selectOne2(Map map);
 
 }
