@@ -25,7 +25,7 @@ public interface StudentDao
     //  多条件查询学生
 //    Student  selectOne2( @Param("id") Integer id, @Param("name") String name);
 //    Student  selectOne2(Student student);
-    //  添加测试代码提交
+    //  添加测试代码提交 123
     Student  selectOne2(Map map);
 
 }
